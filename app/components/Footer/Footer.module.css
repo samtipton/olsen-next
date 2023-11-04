@@ -1,0 +1,26 @@
+.footerMenu {
+  line-height: 1.8;
+  font-family: Helvetica, Arial, sans-serif;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  color: #ec8620;
+  text-decoration: none;
+}
+
+.footerMenu:hover {
+  color: #f5c28f;
+}
+
+.footerMenu2 {
+  line-height: 2;
+  font-family: Helvetica, Arial, sans-serif;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  color: white;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.footerMenu2:hover {
+  opacity: 3;
+}

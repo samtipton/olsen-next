@@ -1,0 +1,73 @@
+.navigationBar {
+  display: block;
+  width: 100%;
+  height: fit-content;
+  min-height: 50px;
+  background: #ec8620;
+}
+
+/*Style for menu links*/
+.navLink {
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+  color: #fff !important;
+  background: #ec8620;
+  text-decoration: none;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.showMenuLabel {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #fff;
+  background: #ec8620;
+  text-align: right;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+  padding: 0 30px;
+  display: none;
+}
+
+input.showMenuInput[type="checkbox"] {
+  display: none;
+}
+
+/*Responsive Styles*/
+
+@media screen and (max-width: 1024px) {
+  input.showMenuInput[type="checkbox"] ~ div {
+    position: static;
+    display: none;
+  }
+
+  input.showMenuInput:checked ~ div {
+    display: grid;
+    grid-template-rows: repeat(8, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  /* TODO need a way to hide the mobile menu when a link is clicked */
+  /* ul.menu:has(> a.navLink:focus) {
+    position: static;
+    display: none !important;
+  } */
+
+  /*Create vertical spacing*/
+  .navigationBar a {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-color: white;
+  }
+
+  /*Display 'Show Menu' link*/
+  .showMenuLabel {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    text-shadow: 0 0 20px rgba(198, 28, 39, 0.8), 0 0 0 black;
+  }
+}

@@ -1,0 +1,88 @@
+.white-block {
+  display: block;
+  background: white;
+  width: 100%;
+}
+.dropCap {
+  float: left;
+  color: #ec8620;
+  font-size: 50pt;
+  line-height: 48px;
+  padding-top: 2px;
+  padding-right: 3px;
+  padding-left: 0px;
+  font-family: Georgia;
+}
+.accordionText {
+  font: 11pt Arial, Helvetica, Sans-serif;
+}
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.panelGroup {
+  margin-bottom: 20px;
+}
+.panelGroup .panel {
+  margin-bottom: 0;
+  border-radius: 4px;
+}
+.panelGroup .panel + .panel {
+  margin-top: 5px;
+}
+.panelGroup .panelHeading {
+  border-bottom: 0;
+}
+.panelGroup .panelHeading + .panelCollapse > .listGroup,
+.panelGroup .panelHeading + .panelCollapse > .panelBody {
+  border-top: 1px solid #ddd;
+}
+.panelGroup .panelFooter {
+  border-top: 0;
+}
+.panelGroup .panelFooter + .panelCollapse .panelBody {
+  border-bottom: 1px solid #ddd;
+}
+.panelDefault {
+  border-color: #ddd;
+}
+.panelDefault > .panelHeading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+.white-block:hover {
+  box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+}
+
+.accordionPanelButton {
+  border: none;
+  display: inline-block;
+  outline: 0;
+  padding: 6px 10px 10px 15px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ec8620;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.w3-btn-block2 {
+  width: 100%;
+}
+
+.panel-group .panel-footer + .panel-collapse .panel-body {
+  border-bottom: 1px solid #ddd;
+}
+.panel-default {
+  border-color: #ddd;
+}
