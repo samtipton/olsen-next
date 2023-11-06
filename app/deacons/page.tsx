@@ -1,7 +1,8 @@
 import React from "react";
+import Deacons from "../components/Deacons/Deacons";
 
-const Deacons = () => {
-  return <div>Deacons</div>;
+const DeaconsPage = () => {
+  return <Deacons />;
 };
 
-export default Deacons;
+export default DeaconsPage;

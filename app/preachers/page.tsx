@@ -1,7 +1,8 @@
 import React from "react";
+import Preachers from "../components/Preachers/Preachers";
 
-const Preachers = () => {
-  return <div>Preachers</div>;
+const PreachersPage = () => {
+  return <Preachers />;
 };
 
-export default Preachers;
+export default PreachersPage;

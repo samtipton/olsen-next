@@ -25,7 +25,9 @@ export default function RootLayout({
           <Header />
           <TopNav />
           <SliderBanner />
-          <div className="w-full p-2.5 bg-neutral-content">{children}</div>
+          <div className="w-full p-2.5 bg-neutral-content pb-12">
+            {children}
+          </div>
           <Footer />
         </div>
       </body>

@@ -1,7 +1,8 @@
 import React from "react";
+import Elders from "../components/Elders/Elders";
 
-const Elders = () => {
-  return <div>Elders</div>;
+const EldersPage = () => {
+  return <Elders />;
 };
 
-export default Elders;
+export default EldersPage;

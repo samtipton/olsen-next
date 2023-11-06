@@ -1,7 +1,8 @@
 import React from "react";
+import Lessons from "../components/Lessons/Lessons";
 
-const Lessons = () => {
-  return <div>Lessons</div>;
+const LessonsPage = () => {
+  return <Lessons />;
 };
 
-export default Lessons;
+export default LessonsPage;

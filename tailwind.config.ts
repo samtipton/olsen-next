@@ -33,7 +33,7 @@ const config: Config = {
           // "neutral-focus": "#2a2e37",
           "neutral-content": "#ccc",
           "base-100": "#8d8779",
-          "base-200": "#f9fafb",
+          "base-200": "#696969",
           "base-300": "#2e3b44",
           // "base-content": "#ccc",
           info: "#2094f3",

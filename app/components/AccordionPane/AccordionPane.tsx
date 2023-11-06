@@ -1,11 +1,13 @@
-import React from "react";
+import React, { Children } from "react";
 import styles from "./AccordionPane.module.css";
 import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 
 export interface AccordionSegmentProps {
   heading: string;
   content?: string;
   defaultOpen?: boolean;
+  inputType?: string;
 }
 
 const AccordionContent = ({ children }: React.PropsWithChildren<{}>) => {
@@ -16,6 +18,7 @@ export const AccordionPaneSegment = ({
   heading,
   defaultOpen,
   children,
+  inputType,
 }: React.PropsWithChildren<AccordionSegmentProps>) => {
   return (
     <div
@@ -27,7 +30,7 @@ export const AccordionPaneSegment = ({
     >
       <input
         className="h-full min-h-min"
-        type="radio"
+        type={inputType ?? "radio"}
         name="my-accordion-1"
         defaultChecked={defaultOpen}
       />
@@ -41,17 +44,17 @@ export const AccordionPaneSegment = ({
   );
 };
 
-export interface AccordionPaneProps {
-  children?: React.ReactElement<
-    React.ComponentProps<typeof AccordionPaneSegment>
-  >[];
-}
-
-const AccordionPane = ({ children }: AccordionPaneProps) => {
+export type AccordionPaneProps = {
+  className?: string;
+};
+const AccordionPane = ({
+  children,
+  className,
+}: React.PropsWithChildren<AccordionPaneProps>) => {
   return (
-    <div className="lg:w-1/3 md:w-1/2 sm:w-full p-3.5">
+    <div className={twMerge("lg:w-1/3 md:w-1/2 sm:w-full p-3.5", className)}>
       <div
-        className="flex flex-col gap-2 rounded-none bg-primary-content"
+        className="flex flex-col gap-2 rounded-none bg-primary-content hoverShadow"
         style={{ padding: "0.55px" }}
       >
         {children}

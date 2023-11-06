@@ -50,7 +50,7 @@ const items: FooterItem[] = [
 ];
 const Footer = () => {
   return (
-    <div className="min-h-14 p-3.5 flex flex-wrap justify-center items-center gap-4 bg-base-300 text-white">
+    <div className="min-h-14 p-3.5 flex flex-wrap justify-center items-center gap-4 bg-base-300 text-white clear-both">
       {items.map(({ href, text, colorClass }) => {
         return (
           <Link

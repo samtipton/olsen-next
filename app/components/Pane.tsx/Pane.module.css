@@ -1,0 +1,4 @@
+.captionShadow {
+  box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0.2), 0 8px 4px 0 rgba(0, 0, 0, 0.19);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+}
