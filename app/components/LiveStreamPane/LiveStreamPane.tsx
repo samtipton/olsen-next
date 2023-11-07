@@ -11,7 +11,7 @@ const LiveStreamPane = () => {
         width={600}
         height={250}
         alt="live stream"
-        src={"/live-stream.jpg"}
+        src="/images/live-stream.jpg"
       />
 
       <p className={classNames("direction-pane-text", "mr-8, ml-8")}>

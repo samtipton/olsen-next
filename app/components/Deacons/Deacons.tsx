@@ -50,7 +50,7 @@ const DeaconsAccordion = ({ className }: AccordionPaneProps) => {
         work at Olsen Park have met the qualifications of Scripture and serve
         the congregation faithfully in this work.
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="open bible"
           width={120}
           height={77}

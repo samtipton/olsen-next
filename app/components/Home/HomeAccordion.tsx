@@ -15,7 +15,7 @@ const HomeAccordion = () => {
         guide. We invite you to browse our site and come and worship with us.
         Please let us introduce ourselves&hellip;
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="open bible"
           width={120}
           height={77}
@@ -43,7 +43,7 @@ const HomeAccordion = () => {
         by which we can be saved from our sins and receive eternal life with God
         in the age to come (2 Timothy 3:14-15; Romans 1:16; 1 Timothy 4:8).
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="bible"
           width={120}
           height={77}
@@ -74,7 +74,7 @@ const HomeAccordion = () => {
         16:1-2; 2 Corinthians 9:7). Visitors are not expected to contribute.
         This is a responsibility of the members here at Olsen Park.
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="open bible"
           width={120}
           height={77}
@@ -107,7 +107,7 @@ const HomeAccordion = () => {
         the Lord&apos;s church. We are not a part of any denomination. We are
         not Protestant, Catholic, nor Jew&mdash;we are simply Christians.
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="open bible"
           width={120}
           height={77}

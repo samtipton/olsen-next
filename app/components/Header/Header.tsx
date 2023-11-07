@@ -13,7 +13,7 @@ const Header = () => {
               <Image
                 priority
                 className="logo mask"
-                src="/olsenparklogo.png"
+                src="/images/olsenparklogo.png"
                 width={384}
                 height={96}
                 alt="Olsen Park church of Christ"

@@ -8,17 +8,17 @@ import AccordionPane, {
 
 const elders: SimpleImagePaneItem[] = [
   {
-    src: "/PLedbetter.jpg",
+    src: "/images/PLedbetter.jpg",
     name: "Patrick Ledbetter",
     alt: "Patrick Ledbetter",
   },
   {
-    src: "/BrMcAlister.jpg",
+    src: "/images/BrMcAlister.jpg",
     name: "Brady McAlister",
     alt: "Brady McAlister",
   },
   {
-    src: "/JNunn.jpg",
+    src: "/images/JNunn.jpg",
     name: "Jeff Nunn",
     alt: "Jeff Nunn",
   },
@@ -76,7 +76,7 @@ const EldersAccordion = ({ className }: AccordionPaneProps) => {
         Olsen Park have been appointed in accordance with these qualifications
         and strive to diligently fulfill this work.
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="open bible"
           width={120}
           height={77}

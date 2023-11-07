@@ -13,8 +13,8 @@ type Preacher = {
 };
 
 const preachers: Preacher[] = [
-  { src: "/austin-byers.jpg", name: "Austin Byers" },
-  { src: "/KPope.jpg", name: "Kyle Pope" },
+  { src: "/images/austin-byers.jpg", name: "Austin Byers" },
+  { src: "/images/KPope.jpg", name: "Kyle Pope" },
 ];
 
 export const Preachers = () => {
@@ -62,7 +62,7 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
         (2 Timothy 4:2). Olsen Park supports a man to work with the congregation
         in carrying out this responsibility
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="open bible"
           width={120}
           height={77}
@@ -88,7 +88,7 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
         work with a congregation.{" "}
         <Link
           style={{ color: "blue", fontWeight: "bold" }}
-          href="PreacherTrainingProgram3.pdf"
+          href="/pdf/PreacherTrainingProgram3.pdf"
         >
           Read the Syllabus & Curriculum.
         </Link>
@@ -102,7 +102,7 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
           June of 2015.
         </span>
         <Image
-          src="/open-bible3.png"
+          src="/images/open-bible3.png"
           alt="open bible"
           width={120}
           height={77}

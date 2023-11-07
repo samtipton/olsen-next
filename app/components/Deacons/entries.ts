@@ -6,31 +6,31 @@ export type Deacon = {
 
 export const deacons: Deacon[] = [
   {
-    src: "/BHight.jpg",
+    src: "/images/BHight.jpg",
     name: "Ben Hight",
   },
   {
-    src: "/BlMcAlister.jpg",
+    src: "/images/BlMcAlister.jpg",
     name: "Blake McAlister",
   },
   {
-    src: "/WMcAnear.jpg",
+    src: "/images/WMcAnear.jpg",
     name: "Walker McAnear",
   },
   {
-    src: "/SNunn.jpg",
+    src: "/images/SNunn.jpg",
     name: "Sam Nunn",
   },
   {
-    src: "/LPurcell.jpg",
+    src: "/images/LPurcell.jpg",
     name: "Lance Purcell",
   },
   {
-    src: "/JSmiley.jpg",
+    src: "/images/JSmiley.jpg",
     name: "Justin Smiley",
   },
   {
-    src: "/TYontz.jpg",
+    src: "/images/TYontz.jpg",
     name: "Trevor Yontz",
   },
 ];

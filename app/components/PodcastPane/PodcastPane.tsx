@@ -10,7 +10,7 @@ const PodcastPane = () => {
         width={600}
         height={600}
         alt="faithful sayings podcast"
-        src="/faithful-sayings-podcast.jpg"
+        src="/images/faithful-sayings-podcast.jpg"
       />
     </Pane>
   );
