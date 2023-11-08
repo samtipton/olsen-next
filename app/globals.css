@@ -90,22 +90,43 @@ body {
   box-shadow: 0 4px 26px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
 }
 
+.direction-pane-text:hover {
+  color: #d5d3ce;
+}
+
 .direction-pane-text:hover a {
   color: #d5d3ce;
 }
 
 .direction-pane-text {
-  font-family: "Helvetica, Arial, sans-serif";
-  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
   color: white;
   text-decoration: none;
 }
 
 .direction-pane-text a {
-  font-family: "Helvetica,Arial, sans-serif";
-  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
   color: white;
   text-decoration: none;
+}
+.separator-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #ccc;
+}
+
+.map-container {
+  display: block;
+  border: solid 2px;
+  border-color: #888478;
+  position: relative;
+  overflow: hidden;
+}
+
+#gmap_canvas img {
+  max-width: none !important;
+  background: none !important;
 }

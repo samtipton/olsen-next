@@ -1,4 +1,3 @@
-import { SimpleImagePaneItem } from "../ImagePane/ImagePane";
 export type Deacon = {
   src: string;
   name: string;

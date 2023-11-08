@@ -3,7 +3,7 @@ import AccordionPane, {
   AccordionPaneSegment,
 } from "../AccordionPane/AccordionPane";
 import classNames from "classnames";
-import Image from "next/image";
+import OpenBibleImage from "../OpenBibleImage/OpenBibleImage";
 
 const HomeAccordion = () => {
   return (
@@ -14,19 +14,7 @@ const HomeAccordion = () => {
         Texas. We are simply Christians seeking to follow the Bible as our sole
         guide. We invite you to browse our site and come and worship with us.
         Please let us introduce ourselves&hellip;
-        <Image
-          src="/images/open-bible3.png"
-          alt="open bible"
-          width={120}
-          height={77}
-          style={{
-            maxWidth: "100%",
-            float: "right",
-            marginLeft: "auto",
-            marginBottom: "-14px",
-            marginRight: "-14px",
-          }}
-        />
+        <OpenBibleImage />
       </AccordionPaneSegment>
       <AccordionPaneSegment heading=" What We Believe">
         <span className={classNames("dropCap")}>W</span>e believe that the Bible
@@ -42,21 +30,7 @@ const HomeAccordion = () => {
         Bible that reveals to us the joyous plan of the gospel of Jesus Christ
         by which we can be saved from our sins and receive eternal life with God
         in the age to come (2 Timothy 3:14-15; Romans 1:16; 1 Timothy 4:8).
-        <Image
-          src="/images/open-bible3.png"
-          alt="bible"
-          width={120}
-          height={77}
-          style={{
-            maxWidth: "100%",
-            width: "auto",
-            height: "auto",
-            float: "right",
-            marginLeft: "auto",
-            marginBottom: "-14px",
-            marginRight: "-14px",
-          }}
-        />
+        <OpenBibleImage />
       </AccordionPaneSegment>
       <AccordionPaneSegment heading="When You Worship With Us">
         <span className="dropCap">W</span>hen you worship with us you can expect
@@ -73,21 +47,7 @@ const HomeAccordion = () => {
         of the material blessings which He has given to us (1 Corinthians
         16:1-2; 2 Corinthians 9:7). Visitors are not expected to contribute.
         This is a responsibility of the members here at Olsen Park.
-        <Image
-          src="/images/open-bible3.png"
-          alt="open bible"
-          width={120}
-          height={77}
-          style={{
-            maxWidth: "100%",
-            width: "auto",
-            height: "auto",
-            float: "right",
-            marginLeft: "auto",
-            marginBottom: "-14px",
-            marginRight: "-14px",
-          }}
-        />
+        <OpenBibleImage />
       </AccordionPaneSegment>
       <AccordionPaneSegment heading="Our Aim">
         <span className="dropCap">T</span>he Bible tells us that when Jesus came
@@ -106,21 +66,7 @@ const HomeAccordion = () => {
         nothing less than simply a congregation of Christians who are members of
         the Lord&apos;s church. We are not a part of any denomination. We are
         not Protestant, Catholic, nor Jew&mdash;we are simply Christians.
-        <Image
-          src="/images/open-bible3.png"
-          alt="open bible"
-          width={120}
-          height={77}
-          style={{
-            maxWidth: "100%",
-            width: "auto",
-            height: "auto",
-            float: "right",
-            marginLeft: "auto",
-            marginBottom: "0px",
-            marginRight: "-14px",
-          }}
-        />
+        <OpenBibleImage />
       </AccordionPaneSegment>
     </AccordionPane>
   );

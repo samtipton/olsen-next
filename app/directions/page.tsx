@@ -1,7 +1,8 @@
 import React from "react";
+import Directions from "../components/Directions/Directions";
 
-const Directions = () => {
-  return <div>Directions</div>;
+const DirectionsPage = () => {
+  return <Directions />;
 };
 
-export default Directions;
+export default DirectionsPage;

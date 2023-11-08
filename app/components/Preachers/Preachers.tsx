@@ -6,6 +6,7 @@ import AccordionPane, {
 import Image from "next/image";
 import ImagePane from "../ImagePane/ImagePane";
 import Link from "next/link";
+import OpenBibleImage from "../OpenBibleImage/OpenBibleImage";
 
 type Preacher = {
   src: string;
@@ -20,7 +21,7 @@ const preachers: Preacher[] = [
 export const Preachers = () => {
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-      <PreachersAccordion className="float-left lg:row-span-2 lg:w-full md:w-full sm:w-full" />
+      <PreachersAccordion className="lg:row-span-2 lg:w-full md:w-full sm:w-full" />
       {preachers.map(({ src, name }) => {
         return (
           <div
@@ -61,19 +62,7 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
         </strong>
         (2 Timothy 4:2). Olsen Park supports a man to work with the congregation
         in carrying out this responsibility
-        <Image
-          src="/images/open-bible3.png"
-          alt="open bible"
-          width={120}
-          height={77}
-          style={{
-            maxWidth: "100%",
-            float: "right",
-            marginLeft: "auto",
-            marginBottom: "-14px",
-            marginRight: "-14px",
-          }}
-        />
+        <OpenBibleImage />
       </AccordionPaneSegment>
       <AccordionPaneSegment
         heading="Preacher Training Program"
@@ -101,19 +90,7 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
           young preacher in this program and left to begin full-time work in
           June of 2015.
         </span>
-        <Image
-          src="/images/open-bible3.png"
-          alt="open bible"
-          width={120}
-          height={77}
-          style={{
-            maxWidth: "100%",
-            float: "right",
-            marginLeft: "auto",
-            marginBottom: "-14px",
-            marginRight: "-14px",
-          }}
-        />
+        <OpenBibleImage />
       </AccordionPaneSegment>
     </AccordionPane>
   );

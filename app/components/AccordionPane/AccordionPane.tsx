@@ -11,7 +11,9 @@ export interface AccordionSegmentProps {
 }
 
 const AccordionContent = ({ children }: React.PropsWithChildren<{}>) => {
-  return <p className={classNames(styles.accordionText, "pt-4")}>{children}</p>;
+  return (
+    <div className={classNames(styles.accordionText, "pt-4")}>{children}</div>
+  );
 };
 
 export const AccordionPaneSegment = ({

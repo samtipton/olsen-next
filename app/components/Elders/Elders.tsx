@@ -5,6 +5,7 @@ import AccordionPane, {
   AccordionPaneProps,
   AccordionPaneSegment,
 } from "../AccordionPane/AccordionPane";
+import OpenBibleImage from "../OpenBibleImage/OpenBibleImage";
 
 const elders: SimpleImagePaneItem[] = [
   {
@@ -27,7 +28,7 @@ const elders: SimpleImagePaneItem[] = [
 const Elders = () => {
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-      <EldersAccordion className="float-left lg:row-span-2 lg:w-full md:w-full sm:w-full" />
+      <EldersAccordion className="lg:row-span-2 lg:w-full md:w-full sm:w-full" />
       {elders.map(({ src, alt, name }) => {
         return (
           <div
@@ -75,19 +76,7 @@ const EldersAccordion = ({ className }: AccordionPaneProps) => {
         I Peter 5:2; Ephesians 4:11). The men who serve in this capacity at
         Olsen Park have been appointed in accordance with these qualifications
         and strive to diligently fulfill this work.
-        <Image
-          src="/images/open-bible3.png"
-          alt="open bible"
-          width={120}
-          height={77}
-          style={{
-            maxWidth: "100%",
-            float: "right",
-            marginLeft: "auto",
-            marginBottom: "-14px",
-            marginRight: "-14px",
-          }}
-        />
+        <OpenBibleImage />
       </AccordionPaneSegment>
     </AccordionPane>
   );

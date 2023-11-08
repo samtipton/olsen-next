@@ -10,7 +10,7 @@ import Image from "next/image";
 const Deacons = () => {
   return (
     <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-      <DeaconsAccordion className="float-left lg:row-span-2 lg:w-full md:w-full sm:w-full" />
+      <DeaconsAccordion className="lg:w-full md:w-full sm:w-full" />
       {deacons.map(({ src, name }) => {
         return (
           <div
