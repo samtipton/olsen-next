@@ -20,27 +20,27 @@ const items: FooterItem[] = [
   },
   {
     text: "Directions",
-    href: "directions#directions",
+    href: "/directions#directions",
   },
   {
     text: "Elders",
-    href: "elders#elders",
+    href: "/elders#elders",
   },
   {
     text: "Deacons",
-    href: "deacons#deacons",
+    href: "/deacons#deacons",
   },
   {
     text: "Preachers",
-    href: "preachers#preachers",
+    href: "/preachers#preachers",
   },
   {
     text: "Lessons",
-    href: "lessons#lessons",
+    href: "/lessons#lessons",
   },
   {
     text: "Contact Us",
-    href: "contact#contact",
+    href: "/contact#contact",
   },
   {
     text: "Facebook Page",

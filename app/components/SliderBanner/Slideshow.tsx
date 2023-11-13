@@ -9,7 +9,7 @@ const Slideshow = ({
   children: React.ReactNode;
 }): React.ReactNode => {
   return (
-    <div>
+    <div className="bg-base-100 pb-4 border-b-4 border-base-200">
       <Zoom
         indicators
         nextArrow={<></>}

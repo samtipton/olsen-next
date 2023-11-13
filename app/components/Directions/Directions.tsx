@@ -52,7 +52,9 @@ const DirectionsMapPane = () => {
   return (
     <div className="lg:col-span-2 md:col-span-2 sm:col-span-1 p-3.5">
       <div className="text-xl text-center font-bold lg:w-full md:w-full sm:w-full border-[#888478] bg-[#989386] hoverShadow rounded-md pt-1.5 px-4 pb-4">
-        <div className="text-white mb-3.5">Come Worship With Us</div>
+        <div className="direction-pane-text text-white mb-3.5">
+          Come Worship With Us
+        </div>
         <div className="separator-bar opacity-50 mb-3" />
         <div className="direction-pane-text text-sm font-normal whitespace-nowrap mb-3">
           <span className="font-bold">

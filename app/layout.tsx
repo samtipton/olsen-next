@@ -1,10 +1,15 @@
+import "dotenv/config";
+require("dotenv").config();
+
 import "./globals.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "./components/Header/Header";
+import Header from "@components/Header/Header";
+import Footer from "@components/Footer/Footer";
 import TopNav from "./components/TopNav/TopNav";
-import SliderBanner from "./components/SliderBanner/SliderBanner";
-import Footer from "./components/Footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,10 +29,7 @@ export default function RootLayout({
         <div className="globalContainer rounded-md">
           <Header />
           <TopNav />
-          <SliderBanner />
-          <div className="w-full p-2.5 bg-neutral-content pb-12">
-            {children}
-          </div>
+          <div className="w-full bg-neutral-content pb-12">{children}</div>
           <Footer />
         </div>
       </body>

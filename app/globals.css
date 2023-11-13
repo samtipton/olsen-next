@@ -98,6 +98,10 @@ body {
   color: #d5d3ce;
 }
 
+.shadowText {
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+}
+
 .direction-pane-text {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
@@ -111,6 +115,7 @@ body {
   color: white;
   text-decoration: none;
 }
+
 .separator-bar {
   display: block;
   width: 100%;

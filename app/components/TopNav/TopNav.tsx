@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import styles from "./TopNav.module.css";
 import classNames from "classnames";
 import Link from "next/link";
+import {
+  IconDefinition,
+  faHome,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type TopNavItem = {
   text: string;
   href: string;
   title: string;
+  beforeIcon?: IconDefinition;
+  afterIcon?: IconDefinition;
 };
 
 const navItems: TopNavItem[] = [
@@ -14,40 +22,42 @@ const navItems: TopNavItem[] = [
     text: "Home",
     href: "/",
     title: "Home Page",
+    beforeIcon: faHome,
   },
   {
     text: "Directions",
-    href: "directions#directions",
+    href: "/directions#directions",
     title: "Directions to our building and times of services.",
   },
   {
     text: "Elders",
-    href: "elders#elders",
+    href: "/elders#elders",
     title: "The elders of Olsen Park.",
   },
   {
     text: "Deacons",
-    href: "deacons#deacons",
+    href: "/deacons#deacons",
     title: "The deacons of Olsen Park.",
   },
   {
     text: "Preachers",
-    href: "preachers#preachers",
+    href: "/preachers#preachers",
     title: "The preachers of Olsen Park.",
   },
   {
     text: "Lessons",
-    href: "lessons#lessons",
+    href: "/lessons#lessons",
     title: "Index of sermons, articles, Bible classes, and other materials.",
   },
   {
     text: "Members",
     href: "https://www.olsenpark.com/members-section/",
     title: "Resources for our members.",
+    beforeIcon: faUser,
   },
   {
     text: "Contact Us",
-    href: "contact#contact",
+    href: "/contact#contact",
     title: "Contact Page.",
   },
 ];
@@ -68,9 +78,8 @@ const TopNav = () => {
           role="button"
         />
         <div className="w-full grid grid-rows-1 grid-cols-8 justify-items-stretch items-center">
-          {navItems.map(({ href, text, title }) => {
+          {navItems.map(({ href, text, title, beforeIcon, afterIcon }) => {
             return (
-              // <li key={title}>
               <Link
                 key={title}
                 className={classNames(
@@ -80,122 +89,16 @@ const TopNav = () => {
                 href={href}
                 title={title}
               >
+                {beforeIcon && (
+                  <FontAwesomeIcon className="mr-2" icon={beforeIcon} />
+                )}
                 {text}
+                {afterIcon && (
+                  <FontAwesomeIcon className="ml-2" icon={afterIcon} />
+                )}
               </Link>
-              // </li>
             );
           })}
-          {/* <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="/"
-                title="Home Page"
-                style={{ outline: "none" }}
-              >
-                <span style={{ fontSize: 24 }}>
-                  <i className="fa fa-home" aria-hidden="true"></i>
-                </span>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="directions"
-                title="Directions to our building and times of services."
-                style={{ outline: "none" }}
-              >
-                Directions
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="elders#elders"
-                title="The elders of Olsen Park."
-                style={{ outline: "none" }}
-              >
-                Elders
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="deacons#deacons"
-                title="The deacons of Olsen Park."
-                style={{ outline: "none" }}
-              >
-                Deacons
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="preachers#preachers"
-                title="The preachers of Olsen Park."
-                style={{ outline: "none" }}
-              >
-                Preachers
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="lessons#lessons"
-                title="Index of sermons, articles, Bible classes, and other materials."
-                style={{ outline: "none" }}
-              >
-                Lessons
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="https://www.olsenpark.com/members-section/"
-                title="Resources for our members."
-                style={{ outline: "none" }}
-              >
-                <span style={{ fontSize: "24" }}>
-                  <i className="fa fa-user" aria-hidden="true"></i>
-                </span>
-                Members
-              </Link>
-            </li>
-            <li>
-              <Link
-                className={classNames(
-                  styles.navLink,
-                  "hover:rounded-none focus:rounded-none"
-                )}
-                href="contact#contact"
-                title="Contact page."
-                style={{ outline: "none" }}
-              >
-                Contact Us
-              </Link>
-            </li> */}
-          {/* </ul> */}
         </div>
       </nav>
     </>

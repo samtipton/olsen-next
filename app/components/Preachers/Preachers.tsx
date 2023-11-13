@@ -66,7 +66,6 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
       </AccordionPaneSegment>
       <AccordionPaneSegment
         heading="Preacher Training Program"
-        defaultOpen={true}
         inputType="radio"
       >
         <span className="drop-cap">I</span>n July of 2008 Olsen Park began a two

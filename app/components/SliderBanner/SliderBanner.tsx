@@ -4,7 +4,6 @@ import "react-slideshow-image/dist/styles.css";
 import Link from "next/link";
 import Slideshow from "./Slideshow";
 import styles from "./SliderBanner.module.css";
-import classNames from "classnames";
 
 export interface SlideImage {
   href: string;
