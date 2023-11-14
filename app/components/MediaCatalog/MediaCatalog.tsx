@@ -43,7 +43,7 @@ const MediaCatalog = ({
     });
 
   return (
-    <div className="w-full border-[#888478] bg-[#989386] hoverShadow md:rounded-md pt-1.5 px-4 pb-4">
+    <div className="w-full h-[36rem] border-[#888478] bg-[#989386] hoverShadow md:rounded-md pt-1.5 px-4 pb-4">
       <div className="text-xl text-center font-bold shadowText text-white mb-1.5">
         {catalogTitle}
       </div>
@@ -56,7 +56,7 @@ const MediaCatalog = ({
         <FontAwesomeIcon className="pl-2" icon={faDownload} />
       </p>
 
-      <div className="w-full">
+      <div className="w-full h-[25rem] overflow-y-scroll mb-16">
         {catalogEntries.map((entry) => {
           return (
             <div key={entry.title}>

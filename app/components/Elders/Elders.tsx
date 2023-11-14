@@ -65,7 +65,7 @@ const EldersAccordion = ({ className }: AccordionPaneProps) => {
         qualifications that are set down in Scripture (Acts 14:23; 1 Timothy
         3:1-7; Titus 1:5-9). This group of men is referred to by several names,
         that describe the nature of their work. They are to be{" "}
-        <b>quot;bishops&quot;</b> or <b>&quot;overseers&quot;</b> (Gr.{" "}
+        <b>&quot;bishops&quot;</b> or <b>&quot;overseers&quot;</b> (Gr.{" "}
         <i>episkopos</i>) who watch over the souls of the members of the
         congregation (Acts 20:28; Philippians 1:1; Hebrews 13:17). They are{" "}
         <b>&quot;elders&quot;</b> or <b>&quot;presbyters&quot;</b> (Gr.{" "}

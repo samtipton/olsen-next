@@ -53,13 +53,13 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
         inputType="radio"
       >
         <span className="drop-cap">I</span>n the New Testament, Paul addresses
-        three epistles to men preaching the gospel. These men, called
+        three epistles to men preaching the gospel. These men, called{" "}
         <strong>&quot;evangelists&quot;</strong> (one who brings good news) are
         charged to{" "}
         <strong>
           &quot;Preach the word! Be ready in season and out of season. Convince,
           rebuke, exhort, with all longsuffering and teaching&quot;
-        </strong>
+        </strong>{" "}
         (2 Timothy 4:2). Olsen Park supports a man to work with the congregation
         in carrying out this responsibility
         <OpenBibleImage />
