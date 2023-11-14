@@ -5,6 +5,8 @@ import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import { faFilePowerpoint } from "@fortawesome/free-regular-svg-icons";
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import IndexTabs from "./IndexTabs";
 
 // todo better name
 export type MediaType = "video" | "audio" | "ppt" | "outline" | "link";
@@ -23,25 +25,42 @@ export type MediaCatalogProps = {
   catalogEntries: MediaEntry[];
   catalogYearStart: number;
   catalogYearEnd: number;
-  onSelectPage?(page: number): void;
-  onSelectYear?(year: number): void;
 };
 
 const MediaCatalog = ({
   catalogTitle,
   catalogEntries,
+  catalogYearStart,
+  catalogYearEnd,
 }: PropsWithChildren<MediaCatalogProps>) => {
+  const yearRange = Array.from(
+    { length: catalogYearEnd - catalogYearStart },
+    (v, k) => k + catalogYearStart + 1
+  )
+    .reverse()
+    .map((num) => {
+      return `${num}`;
+    });
+
   return (
-    <div className="lg:w-full md:w-full sm:w-full border-[#888478] bg-[#989386] hoverShadow rounded-md pt-1.5 px-4 pb-4">
+    <div className="w-full border-[#888478] bg-[#989386] hoverShadow md:rounded-md pt-1.5 px-4 pb-4">
       <div className="text-xl text-center font-bold shadowText text-white mb-1.5">
         {catalogTitle}
       </div>
       <div className="separator-bar opacity-50 mb-3" />
+      <IndexTabs indices={yearRange} indexLinkPrefix="sermons" />
+      <p className="text-center leading-5 whitespace-nowrap color-[#3c3a35] mb-1.5">
+        Click on a title to watch video.
+        <br />
+        Click on an icon to download files.
+        <FontAwesomeIcon className="pl-2" icon={faDownload} />
+      </p>
+
       <div className="w-full">
         {catalogEntries.map((entry) => {
           return (
             <div key={entry.title}>
-              <div className="w-full bg-[#79756b] h-12 p-4">
+              <div className="w-full bg-[#79756b] min-h-min p-4">
                 <div className="flex text-sm text-white shadowText w-full">
                   {/* <!-- Player Entry --> */}
                   <div className="grow text-start">

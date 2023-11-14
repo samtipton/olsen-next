@@ -4,7 +4,6 @@ import "server-only";
 import { WithId } from "mongodb";
 import VideoPane from "@/app/components/VideoPane/VideoPane";
 import { extractVimeoIdFromRegularLink } from "@/lib/vimeoUtil";
-import Image from "next/image";
 
 /**
  * extract to models file
@@ -25,12 +24,13 @@ const SermonsPage = async ({ params }: { params: { year: string } }) => {
   const sermons = (await db
     .collection("sermons")
     .find({})
+    .filter({}) // filter by date
     .sort("date", "desc")
-    .limit(20) // todo limit to quarter and paginate, query on date range?
+    .limit(26) // todo limit to quarter and paginate, query on date range?
     .toArray()) as Sermon[];
 
   return (
-    <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 lg:p-2.5 md:p-2.5 sm:p-0">
+    <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:p-2.5 md:p-2.5 sm:p-0">
       <VideoPane />
       <MediaCatalog
         catalogTitle={`Sermons ${params.year}`}
