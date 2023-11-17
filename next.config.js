@@ -3,7 +3,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/:slug*.mp3",
+        source: "/api/download/:slug*",
         headers: [
           {
             key: "Content-disposition",

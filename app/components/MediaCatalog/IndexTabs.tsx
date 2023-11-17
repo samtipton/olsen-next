@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 // @ts-ignore https://github.com/Mood-al/react-tabs-scrollable/issues/19
-import { Tabs, Tab } from "react-tabs-scrollable";
+import { Tabs } from "react-tabs-scrollable";
 import "react-tabs-scrollable/dist/rts.css";
 
 export type IndexTabsProps = {
@@ -37,7 +37,7 @@ const IndexTabs = ({ indices, indexLinkPrefix }: IndexTabsProps) => {
   const length = indices.length;
 
   return (
-    <>
+    <div className="flex justify-center">
       <Tabs
         activeTab={activeTab}
         onTabClick={onTabClick}
@@ -56,11 +56,11 @@ const IndexTabs = ({ indices, indexLinkPrefix }: IndexTabsProps) => {
             style={linkStyle}
           >
             {index}
-            {i !== length && <>&nbsp;&nbsp;&nbsp;&bull;</>}
+            {i !== length - 1 && <>&nbsp;&nbsp;&nbsp;&bull;</>}
           </Link>
         ))}
       </Tabs>
-    </>
+    </div>
   );
 };
 

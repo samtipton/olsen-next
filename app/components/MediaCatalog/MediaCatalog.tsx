@@ -34,8 +34,8 @@ const MediaCatalog = ({
   catalogYearEnd,
 }: PropsWithChildren<MediaCatalogProps>) => {
   const yearRange = Array.from(
-    { length: catalogYearEnd - catalogYearStart },
-    (v, k) => k + catalogYearStart + 1
+    { length: catalogYearEnd - catalogYearStart + 1 },
+    (v, k) => k + catalogYearStart + 0
   )
     .reverse()
     .map((num) => {
@@ -59,7 +59,7 @@ const MediaCatalog = ({
       <div className="w-full h-[25rem] overflow-y-scroll mb-16">
         {catalogEntries.map((entry) => {
           return (
-            <div key={entry.title}>
+            <div key={`${entry.title}-${entry.date}`}>
               <div className="w-full bg-[#79756b] min-h-min p-4">
                 <div className="flex text-sm text-white shadowText w-full">
                   {/* <!-- Player Entry --> */}
@@ -67,7 +67,6 @@ const MediaCatalog = ({
                     <Link
                       className="font-bold hover:opacity-50"
                       href={entry.content}
-                      id="theButton"
                       title={entry.title}
                       style={{ textDecoration: "none" }}
                     >
