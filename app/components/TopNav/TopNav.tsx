@@ -1,5 +1,6 @@
+"use client";
+
 import React, { useState } from "react";
-import styles from "./TopNav.module.css";
 import classNames from "classnames";
 import Link from "next/link";
 import {
@@ -8,6 +9,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 type TopNavItem = {
   text: string;
@@ -62,43 +64,58 @@ const navItems: TopNavItem[] = [
   },
 ];
 const TopNav = () => {
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const navComponents = navItems.map(
+    ({ href, text, title, beforeIcon, afterIcon }) => {
+      return (
+        <Link
+          key={title}
+          className={classNames(
+            "h-[50px] whitespace-nowrap bg-primary hover:bg-neutral text-white font-bold leading-[50px] text-center shadowText",
+            menuVisible && "border-t-2 border-white lg:border-0"
+          )}
+          onClick={() => setMenuVisible(false)}
+          href={href}
+          title={title}
+        >
+          {beforeIcon && <FontAwesomeIcon className="mr-2" icon={beforeIcon} />}
+          {text}
+          {afterIcon && <FontAwesomeIcon className="ml-2" icon={afterIcon} />}
+        </Link>
+      );
+    }
+  );
+
   return (
     <>
-      <nav className={styles.navigationBar}>
+      <nav>
         <label
           htmlFor="show-menu"
-          className={classNames(styles.showMenuLabel, "disable-selection")}
+          className="block lg:hidden h-[50px] leading-[50px] bg-primary text-white font-bold text-center md:text-right px-8 shadowText select-none"
         >
-          Menu <i className="fa fa-bars" aria-hidden="true"></i>
+          Menu <FontAwesomeIcon icon={faBars} />
         </label>
         <input
-          className={styles.showMenuInput}
+          onClick={() => {
+            setMenuVisible((prev) => !prev);
+          }}
+          className="hidden"
           type="checkbox"
           id="show-menu"
           role="button"
         />
-        <div className="w-full grid grid-rows-1 grid-cols-8 justify-items-stretch items-center">
-          {navItems.map(({ href, text, title, beforeIcon, afterIcon }) => {
-            return (
-              <Link
-                key={title}
-                className={classNames(
-                  styles.navLink,
-                  "whitespace-nowrap hover:bg-neutral"
-                )}
-                href={href}
-                title={title}
-              >
-                {beforeIcon && (
-                  <FontAwesomeIcon className="mr-2" icon={beforeIcon} />
-                )}
-                {text}
-                {afterIcon && (
-                  <FontAwesomeIcon className="ml-2" icon={afterIcon} />
-                )}
-              </Link>
-            );
-          })}
+        {/* horizontal menu */}
+        <div className="w-full hidden lg:grid grid-rows-1 grid-cols-8 justify-items-stretch items-center">
+          {...navComponents}
+        </div>
+        {/* vertical menu */}
+        <div
+          className={`w-full ${
+            menuVisible ? "grid" : "hidden"
+          } lg:hidden grid-rows-8 grid-cols-1 justify-items-stretch items-center`}
+        >
+          {...navComponents}
         </div>
       </nav>
     </>

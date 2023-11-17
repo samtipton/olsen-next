@@ -16,7 +16,7 @@ const Directions = () => {
 
 const DirectionsAccordion = () => {
   return (
-    <AccordionPane className="lg:row-span-2 lg:w-full md:w-full sm:w-full">
+    <AccordionPane className="lg:row-span-2 lg:w-full md:w-full md:col-span-2 lg:col-span-1 sm:w-full">
       <AccordionPaneSegment heading="Times of Services" defaultOpen={true}>
         <span className="dropCap">W</span>e have classes for all ages on Sunday
         and Wednesday and we assemble as a church for worship twice on Sunday
