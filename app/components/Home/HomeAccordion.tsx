@@ -7,7 +7,7 @@ import OpenBibleImage from "../OpenBibleImage/OpenBibleImage";
 
 const HomeAccordion = () => {
   return (
-    <AccordionPane>
+    <AccordionPane className="w-full md:w-1/2 lg:w-1/3">
       <AccordionPaneSegment heading="Who Are We?" defaultOpen={true}>
         <span className={"dropCap"}>O</span>lsen Park church of Christ is a warm
         congregation of Christians in Southwest Amarillo, Texas. We are simply
