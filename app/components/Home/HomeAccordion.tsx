@@ -9,16 +9,16 @@ const HomeAccordion = () => {
   return (
     <AccordionPane>
       <AccordionPaneSegment heading="Who Are We?" defaultOpen={true}>
-        <span className={classNames("dropCap")}>O</span>lsen Park church of
-        Christ is a warm congregation of Christians in Southwest Amarillo,
-        Texas. We are simply Christians seeking to follow the Bible as our sole
-        guide. We invite you to browse our site and come and worship with us.
-        Please let us introduce ourselves&hellip;
+        <span className={"dropCap"}>O</span>lsen Park church of Christ is a warm
+        congregation of Christians in Southwest Amarillo, Texas. We are simply
+        Christians seeking to follow the Bible as our sole guide. We invite you
+        to browse our site and come and worship with us. Please let us introduce
+        ourselves&hellip;
         <OpenBibleImage />
       </AccordionPaneSegment>
       <AccordionPaneSegment heading=" What We Believe">
-        <span className={classNames("dropCap")}>W</span>e believe that the Bible
-        is the inspired word of God (2 Timothy 3:16-17; 2 Peter 1:19-21). It was
+        <span className={"dropCap"}>W</span>e believe that the Bible is the
+        inspired word of God (2 Timothy 3:16-17; 2 Peter 1:19-21). It was
         revealed to mankind as a guide for all things having to do with our
         lives and how we worship God (Psalm 119:105; 2 Peter 1:2-4). The Old
         Testament teaches us how God set apart a people unto Himself in order to

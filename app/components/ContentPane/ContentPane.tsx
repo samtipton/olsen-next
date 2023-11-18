@@ -25,18 +25,20 @@ const AudioPowerpointPane = ({
           allowFullScreen={false}
         />
       )}
-      <ReactPlayer
-        // id="audio"
-        height={50}
-        width={"100%"}
-        className="block w-full h-2/4"
-        style={{ border: "none", borderRadius: "none", background: "black" }}
-        url={
-          "https://olsen-park.s3.us-east-2.amazonaws.com/" +
-          encodeURIComponent(audioSrc)
-        }
-        controls={true}
-      />
+      {audioSrc && (
+        <ReactPlayer
+          // id="audio"
+          height={50}
+          width={"100%"}
+          className="block w-full h-2/4"
+          style={{ border: "none", borderRadius: "none", background: "black" }}
+          url={
+            "https://olsen-park.s3.us-east-2.amazonaws.com/" +
+            encodeURIComponent(audioSrc)
+          }
+          controls={true}
+        />
+      )}
     </div>
   );
 };

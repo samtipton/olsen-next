@@ -41,7 +41,7 @@ const DeaconsAccordion = ({ className }: AccordionPaneProps) => {
         defaultOpen={true}
         inputType="checkbox"
       >
-        <span className="drop-cap">T</span>he New Testament teaches that in
+        <span className="dropCap">T</span>he New Testament teaches that in
         addition to elders, congregations of the Lord&apos;s people, appointed
         servants referred to as <b>&quot;deacons&quot;</b> (Philippians 1:1).
         Like elders, these men are to be appointed based upon qualifications

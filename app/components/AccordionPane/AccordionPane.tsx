@@ -54,7 +54,7 @@ const AccordionPane = ({
   className,
 }: React.PropsWithChildren<AccordionPaneProps>) => {
   return (
-    <div className={twMerge("lg:w-1/3 md:w-1/2 sm:w-full p-3.5", className)}>
+    <div className={twMerge("w-full p-3.5", className)}>
       <div
         className="flex flex-col gap-2 rounded-none bg-primary-content hoverShadow"
         style={{ padding: "0.55px" }}

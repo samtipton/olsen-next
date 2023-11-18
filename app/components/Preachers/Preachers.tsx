@@ -52,7 +52,7 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
         defaultOpen={true}
         inputType="radio"
       >
-        <span className="drop-cap">I</span>n the New Testament, Paul addresses
+        <span className="dropCap">I</span>n the New Testament, Paul addresses
         three epistles to men preaching the gospel. These men, called{" "}
         <strong>&quot;evangelists&quot;</strong> (one who brings good news) are
         charged to{" "}
@@ -68,7 +68,7 @@ const PreachersAccordion = ({ className }: AccordionPaneProps) => {
         heading="Preacher Training Program"
         inputType="radio"
       >
-        <span className="drop-cap">I</span>n July of 2008 Olsen Park began a two
+        <span className="dropCap">I</span>n July of 2008 Olsen Park began a two
         year preacher training program. This program involves an intensive study
         regiment and graduated teaching and preaching opportunities for the
         starting evangelist. The preacher works closely with brother Pope and

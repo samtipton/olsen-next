@@ -1,13 +1,14 @@
 import React from "react";
 import SliderBanner from "@components/SliderBanner/SliderBanner";
+import Contact from "@components/Contact/Contact";
 
-const Contact = () => {
+const ContactPage = () => {
   return (
     <div>
       <SliderBanner />
-      <div>Contact</div>
+      <Contact />
     </div>
   );
 };
 
-export default Contact;
+export default ContactPage;
