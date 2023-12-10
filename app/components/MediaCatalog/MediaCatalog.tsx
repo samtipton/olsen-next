@@ -5,11 +5,12 @@ import { faHeadphones } from "@fortawesome/free-solid-svg-icons";
 import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import { faFilePowerpoint } from "@fortawesome/free-regular-svg-icons";
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
+import { faFilePdf } from "@fortawesome/free-regular-svg-icons";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import IndexTabs from "./IndexTabs";
 
 // todo better name
-export type MediaType = "video" | "audio" | "ppt" | "outline" | "link";
+export type MediaType = "video" | "audio" | "ppt" | "outline" | "link" | "pdf";
 
 export type MediaEntry = {
   title: string;
@@ -25,6 +26,8 @@ export type MediaCatalogProps = {
   catalogEntries: MediaEntry[];
   catalogYearStart: number;
   catalogYearEnd: number;
+  helpText: string;
+  indexLinkPrefix: string;
 };
 
 const MediaCatalog = ({
@@ -32,6 +35,8 @@ const MediaCatalog = ({
   catalogEntries,
   catalogYearStart,
   catalogYearEnd,
+  indexLinkPrefix,
+  helpText,
 }: PropsWithChildren<MediaCatalogProps>) => {
   const yearRange = Array.from(
     { length: catalogYearEnd - catalogYearStart + 1 },
@@ -48,9 +53,9 @@ const MediaCatalog = ({
         {catalogTitle}
       </div>
       <div className="separator-bar opacity-50 mb-3" />
-      <IndexTabs indices={yearRange} indexLinkPrefix="sermons" />
+      <IndexTabs indices={yearRange} indexLinkPrefix={indexLinkPrefix} />
       <p className="text-center leading-5 whitespace-nowrap color-[#3c3a35] mb-1.5">
-        Click on a title to watch video.
+        {helpText}
         <br />
         Click on an icon to download files.
         <FontAwesomeIcon className="pl-2" icon={faDownload} />
@@ -95,21 +100,28 @@ type ContentButtonsProps = {
 const ContentButtons = ({ content }: ContentButtonsProps) => {
   return (
     <div className="flex gap-4">
-      {/* // <!-- Fullscreen Video Entry --> */}
+      {/* Fullscreen Video Entry */}
       {content?.video && (
-        <Link href={content.video} title="Open video in new window.">
+        <Link href={content.video} title="Open video in new window">
           <FontAwesomeIcon icon={faFilm} className="hover:scale-125" />
         </Link>
       )}
 
-      {/* <!-- Audio Entry --> */}
+      {/* Audio Entry */}
       {content?.audio && (
-        <Link href={content.audio} title="Download audio file.">
+        <Link href={content.audio} title="Download audio file">
           <FontAwesomeIcon icon={faHeadphones} className="hover:scale-125" />
         </Link>
       )}
 
-      {/* <!-- Powerpoint Entry--> */}
+      {/* {Pdf Entry} */}
+      {content?.pdf && (
+        <Link href={content.pdf} title="Download pdf file">
+          <FontAwesomeIcon icon={faFilePdf} className="hover:scale-125" />
+        </Link>
+      )}
+
+      {/* Powerpoint Entry */}
       {content?.ppt && (
         <Link href={content.ppt} title="Download PPTX file">
           <FontAwesomeIcon
@@ -119,9 +131,9 @@ const ContentButtons = ({ content }: ContentButtonsProps) => {
         </Link>
       )}
 
-      {/* <!-- Sermon Outline Entry--> */}
+      {/* Sermon Outline Entry */}
       {content.outline && (
-        <Link href={content.outline} title="View sermon outline.">
+        <Link href={content.outline} title="View sermon outline">
           <FontAwesomeIcon icon={faFileLines} className="hover:scale-125" />
         </Link>
       )}

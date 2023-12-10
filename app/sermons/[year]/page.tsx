@@ -1,9 +1,9 @@
 import MediaCatalog from "@/app/components/MediaCatalog/MediaCatalog";
 import "server-only";
-import { WithId, Document } from "mongodb";
+import { Document } from "mongodb";
 import ContentPane from "@/app/components/ContentPane/ContentPane";
 import { extractVimeoIdFromRegularLink } from "@/lib/vimeoUtil";
-import { Sermon, getSermonCollection } from "@/lib/useSermonCollection";
+import { Sermon, getSermonCollection } from "@/lib/getSermonCollection";
 
 // Return a list of `params` to populate the [year] dynamic segment
 export const generateStaticParams = async () => {
@@ -119,6 +119,8 @@ const SermonsPage = async ({ params }: SermonPageProps) => {
         catalogTitle={`Sermons ${year}`}
         catalogYearEnd={end}
         catalogYearStart={start}
+        indexLinkPrefix="sermons"
+        helpText={"Click on a title to watch video."}
         catalogEntries={sermons.map((sermon) => {
           // get date and subtract UTC offset (6 hours for CST)
           // this bypases browser day light's saving correction
