@@ -1,20 +1,25 @@
 "use server";
-import { Sermon } from "./../../../lib/useSermonCollection";
 import { MongoClient } from "mongodb";
+import { revalidatePath } from "next/cache";
 import {
   S3Client,
   PutObjectCommand,
   PutObjectCommandInput,
 } from "@aws-sdk/client-s3";
-import { z } from "zod";
-import { getSermonCollection } from "@/lib/useSermonCollection";
+import { getSermonCollection } from "@/lib/getSermonCollection";
 
-const createPutObjectCommandInput = async (key: string, file: File) => {
+const createPutObjectCommandInput = async (
+  key: string,
+  arrayBuffer: ArrayBuffer,
+  size: number
+) => {
+  console.log(arrayBuffer);
   return new PutObjectCommand({
     Bucket: "olsen-park",
     Key: key,
-    Body: Buffer.from(await file.arrayBuffer()),
-    ContentLength: file.size,
+    // Body: file,
+    Body: Buffer.from(arrayBuffer),
+    ContentLength: size,
   });
 };
 
@@ -74,27 +79,23 @@ const createStandardizedDateString = (
   return stdDate;
 };
 
-export const addSermon = async (prevState: any, formData: FormData) => {
-  const sermonSchema = z.object({
-    author: z.string().min(1),
-    title: z.string().min(1),
-    month: z.string().min(1),
-    day: z.string().min(1),
-    year: z.string().length(4),
-    serviceTime: z.string(),
-    videoLink: z.string().min(1),
-    sermonAudio: z.any(),
-  });
-  const author = (formData.get("author") as string) || "";
-  const title = (formData.get("title") as string) || "";
-  const month = (formData.get("month") as string) || "";
-  const day = (formData.get("day") as string) || "";
-  const year = (formData.get("year") as string) || "";
-  const serviceTime = (formData.get("serviceTime") as string) || "";
-  const videoUrl = (formData.get("videoUrl") as string) || "";
-  const sermonAudio = formData.get("sermonAudio") as File;
-  const sermonPresentation = formData.get("sermonPresentation") as File;
-  const sermonOutline = formData.get("sermonOutline") as File;
+export type AddSermonResponse = { message: string; errors?: string };
+export const addSermon = async (data: FormData): Promise<AddSermonResponse> => {
+  console.log("addSermon");
+  console.log(data);
+
+  const title = (data.get("title") as string) || "";
+  const author = (data.get("author") as string) || "";
+  const month = (data.get("month") as string) || "";
+  const day = (data.get("day") as string) || "";
+  const year = (data.get("year") as string) || "";
+
+  const videoUrl = (data.get("videoUrl") as string) || "";
+  const serviceTime = (data.get("serviceTime") as string) || "";
+
+  const sermonAudio = data.get("sermonAudio") as File;
+  const sermonPresentation = data.get("sermonPresentation") as File;
+  const sermonOutline = data.get("sermonOutline") as File;
 
   const standardizedDate = createStandardizedDateString(
     month,
@@ -103,33 +104,42 @@ export const addSermon = async (prevState: any, formData: FormData) => {
     serviceTime
   );
 
+  if (sermonAudio) {
+    console.log(sermonAudio);
+    console.log(await sermonAudio.arrayBuffer());
+  }
+
   const isoUtcDate = createStandardizedDate(month, day, year, serviceTime);
 
   const commands = [];
-  if (sermonAudio.name !== "undefined") {
+
+  if (sermonAudio && sermonAudio.size > 0) {
     commands.push(
       await createPutObjectCommandInput(
         `sermons/${year}/${standardizedDate}/${sermonAudio.name}`,
-        sermonAudio
+        await sermonAudio.arrayBuffer(),
+        sermonAudio.size
       )
     );
   }
 
   // todo could check s3 to see if these objects already exist before uploading
-  if (sermonPresentation.name !== "undefined") {
+  if (sermonPresentation.size > 0) {
     commands.push(
       await createPutObjectCommandInput(
         `sermons/${year}/${standardizedDate}/${sermonPresentation.name}`,
-        sermonPresentation
+        await sermonPresentation.arrayBuffer(),
+        sermonPresentation.size
       )
     );
   }
 
-  if (sermonOutline.name !== "undefined") {
+  if (sermonOutline.size > 0) {
     commands.push(
       await createPutObjectCommandInput(
         `sermons/${year}/${standardizedDate}/${sermonOutline.name}`,
-        sermonOutline
+        await sermonOutline.arrayBuffer(),
+        sermonOutline.size
       )
     );
   }
@@ -150,23 +160,37 @@ export const addSermon = async (prevState: any, formData: FormData) => {
   });
 
   if (errors.length > 0) {
-    return { message: "failure", errors: errors };
+    return { message: "failure", errors: errors.join(",\n") };
   }
 
   const sermonCollection = await getSermonCollection();
-  const result = await sermonCollection.insertOne({
-    author,
-    date: isoUtcDate,
-    title,
-    videoUrl,
-    audioFilename: sermonAudio.name,
-    presentationFilename:
-      sermonPresentation.name === "undefined" ? "" : sermonPresentation.name,
-    outlineFilename:
-      sermonOutline.name === "undefined" ? "" : sermonOutline.name,
-    prefix: `sermons/${year}/${standardizedDate}`,
-  });
+  const insertResult = await sermonCollection.replaceOne(
+    {
+      author,
+      date: isoUtcDate,
+    },
+    {
+      author,
+      date: isoUtcDate,
+      title,
+      videoUrl,
+      audioFilename: sermonAudio ? sermonAudio.name : "",
+      presentationFilename:
+        sermonPresentation.name === "undefined" ? "" : sermonPresentation.name,
+      outlineFilename:
+        sermonOutline.name === "undefined" ? "" : sermonOutline.name,
+
+      prefix: `sermons/${year}/${standardizedDate}`,
+    },
+    { upsert: true }
+  );
+
+  console.log(insertResult.acknowledged);
+
+  if (insertResult.acknowledged) {
+    revalidatePath(`/sermons/${year}`);
+  }
 
   // todo, if mongo insert fails we should undo s3 uploads
-  return { message: result.acknowledged ? "success" : "failure" };
+  return { message: insertResult.acknowledged ? "success" : "failure" };
 };
