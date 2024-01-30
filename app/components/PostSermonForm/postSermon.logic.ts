@@ -1,19 +1,13 @@
 "use server";
-import { MongoClient } from "mongodb";
-import { revalidatePath } from "next/cache";
-import {
-  S3Client,
-  PutObjectCommand,
-  PutObjectCommandInput,
-} from "@aws-sdk/client-s3";
 import { getSermonCollection } from "@/lib/getSermonCollection";
+import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { revalidatePath } from "next/cache";
 
 const createPutObjectCommandInput = async (
   key: string,
   arrayBuffer: ArrayBuffer,
   size: number
 ) => {
-  console.log(arrayBuffer);
   return new PutObjectCommand({
     Bucket: "olsen-park",
     Key: key,
@@ -57,7 +51,6 @@ const createStandardizedDate = (
   local.setMilliseconds(0);
 
   const utc = removeDST(local);
-  console.log(utc);
 
   return utc;
 };
@@ -75,15 +68,13 @@ const createStandardizedDateString = (
     /:?\d{2}?\s*[AaPp]\.?[Mm]\.?\s*/,
     ""
   )}`;
-  console.log(stdDate);
   return stdDate;
 };
 
-export type AddSermonResponse = { message: string; errors?: string };
-export const addSermon = async (data: FormData): Promise<AddSermonResponse> => {
-  console.log("addSermon");
-  console.log(data);
-
+export type PostSermonResponse = { message: string; errors?: string };
+export const postSermon = async (
+  data: FormData
+): Promise<PostSermonResponse> => {
   const title = (data.get("title") as string) || "";
   const author = (data.get("author") as string) || "";
   const month = (data.get("month") as string) || "";
@@ -103,11 +94,6 @@ export const addSermon = async (data: FormData): Promise<AddSermonResponse> => {
     year,
     serviceTime
   );
-
-  if (sermonAudio) {
-    console.log(sermonAudio);
-    console.log(await sermonAudio.arrayBuffer());
-  }
 
   const isoUtcDate = createStandardizedDate(month, day, year, serviceTime);
 
@@ -184,8 +170,6 @@ export const addSermon = async (data: FormData): Promise<AddSermonResponse> => {
     },
     { upsert: true }
   );
-
-  console.log(insertResult.acknowledged);
 
   if (insertResult.acknowledged) {
     revalidatePath(`/sermons/${year}`);

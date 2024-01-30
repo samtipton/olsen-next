@@ -1,13 +1,14 @@
 "use client";
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useCallback, useState } from "react";
-import { addSermon } from "./addSermon.logic";
+import { postSermon } from "./postSermon.logic";
 import { z } from "zod";
 import { useDropzone } from "react-dropzone";
 import classNames from "classnames";
 
-const addSermonClientSchema = z.object({
+const postSermonClientSchema = z.object({
   author: z.string().min(1),
   title: z.string().min(1),
   month: z.string().min(1),
@@ -20,8 +21,8 @@ const addSermonClientSchema = z.object({
   sermonOutline: z.custom<File>(),
 });
 
-type AddSermonClientSchema = z.infer<typeof addSermonClientSchema>;
-const AddSermonForm = () => {
+type PostSermonClientSchema = z.infer<typeof postSermonClientSchema>;
+export const PostSermonForm = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [error, setError] = useState("");
   const [audioFile, setAudioFile] = useState<File | null>(null);
@@ -39,8 +40,8 @@ const AddSermonForm = () => {
     getValues,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<AddSermonClientSchema>({
-    resolver: zodResolver(addSermonClientSchema),
+  } = useForm<PostSermonClientSchema>({
+    resolver: zodResolver(postSermonClientSchema),
     // defaultValues: {
     //   author: "Austin Byers",
     //   title: "The Family of God",
@@ -105,8 +106,8 @@ const AddSermonForm = () => {
     isDragReject: isDragRejectOutline,
   } = useDropzone({ onDrop: onDropSermonOutline, maxFiles: 1 });
 
-  const onSubmit: SubmitHandler<AddSermonClientSchema> = async (
-    data: AddSermonClientSchema
+  const onSubmit: SubmitHandler<PostSermonClientSchema> = async (
+    data: PostSermonClientSchema
   ) => {
     console.log(data);
     const fd = new FormData();
@@ -128,7 +129,7 @@ const AddSermonForm = () => {
       fd.append("sermonOutline", data.sermonOutline as File);
     }
 
-    const response = await addSermon(fd);
+    const response = await postSermon(fd);
 
     if (response.message === "success") {
       setShowSuccess(true);
@@ -305,15 +306,3 @@ const AddSermonForm = () => {
     </>
   );
 };
-
-const AddSermonPage = () => {
-  return (
-    <div className="p-4">
-      <div className="card bg-neutral-200 shadow-xl p-4">
-        <AddSermonForm />
-      </div>
-    </div>
-  );
-};
-
-export default AddSermonPage;
