@@ -1,7 +1,7 @@
-import { Collection, WithId } from "mongodb";
+import { Collection } from "mongodb";
 import clientPromise from "./mongodb";
 
-export type Sermon = WithId<{
+export type Sermon = {
   title: string;
   date: Date;
   author: string;
@@ -10,7 +10,7 @@ export type Sermon = WithId<{
   presentationFilename: string;
   outlineFilename: string;
   prefix: string;
-}>;
+};
 
 export const getSermonCollection = async (): Promise<Collection<Sermon>> => {
   const client = await clientPromise;

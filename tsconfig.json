@@ -20,8 +20,10 @@
     ],
     "paths": {
       "@/*": ["./*"],
+      "@api/*": ["./app/api/*"],
       "@components/*": ["./app/components/*"],
-      "@mongodb": ["./lib/mongodb.ts"]
+      "@mongodb": ["./lib/mongodb.ts"],
+      "@auth": ["./auth"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

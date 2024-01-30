@@ -9,7 +9,7 @@ export const lessons: LessonPane[] = [
   {
     caption: "Sermons",
     src: "/images/sermons5.png",
-    href: "sermons/2023",
+    href: "sermons/2024",
     title: "An archive of sermons preached at Olsen Park church of Christ.",
   },
   {
