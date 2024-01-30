@@ -47,7 +47,6 @@ export const config = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        console.log(credentials);
         if (!credentials?.email || !credentials?.password) {
           return null;
         }
