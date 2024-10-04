@@ -5,6 +5,8 @@ import ContentPane from "@/app/components/ContentPane/ContentPane";
 import { extractVimeoIdFromRegularLink } from "@/lib/vimeoUtil";
 import { Sermon, getSermonCollection } from "@/lib/getSermonCollection";
 
+export const revalidate = 60;
+
 // Return a list of `params` to populate the [year] dynamic segment
 export const generateStaticParams = async () => {
   const docs = await getSermonYears();
